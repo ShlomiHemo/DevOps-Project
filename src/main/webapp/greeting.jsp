@@ -1,16 +1,11 @@
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Shlomi's Web App</title>
+    <meta charset="UTF-8">
+    <title>Greeting Page</title>
 </head>
 <body>
-    <h1>Hello from Shlomi Hemo!</h1>
-    <%
-        String userInput = request.getParameter("userInput");
-        if (userInput != null && !userInput.isEmpty()) {
-            out.println("<p>You entered: " + userInput + "</p>");
-        } else {
-            out.println("<p>No input provided.</p>");
-        }
-    %>
+    <h2>Welcome to my DevOps Project!</h2>
+    <p><a href="index.jsp">Back to Home</a></p>
 </body>
 </html>
