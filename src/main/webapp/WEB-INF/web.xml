@@ -1,4 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee" version="3.1">
     <display-name>ShlomiHemo WebApp</display-name>
+    <servlet>
+        <servlet-name>index</servlet-name>
+        <jsp-file>/index.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>index</servlet-name>
+        <url-pattern>/index</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>greeting</servlet-name>
+        <jsp-file>/greeting.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>greeting</servlet-name>
+        <url-pattern>/greeting</url-pattern>
+    </servlet-mapping>
 </web-app>
