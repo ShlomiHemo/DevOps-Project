@@ -68,7 +68,6 @@
         <h1>Hello Moshe!</h1>
         <p>Enter your name and click the button:</p>
         <input type="text" id="nameInput" placeholder="Your name here">
-        <input type="text" id="usernameInput" placeholder="Your user name here">
         <br>
         <button onclick="sayHello()">Say Hello</button>
         <div id="output"></div>
