@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Shlomi Hemo WebApp</title>
+    <title>DevOps Project</title>
     <style>
         body {
             font-family: Arial, sans-serif;
