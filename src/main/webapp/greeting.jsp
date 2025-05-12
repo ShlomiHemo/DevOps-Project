@@ -1,3 +1,6 @@
+<%
+  response.setHeader("skip_zrok_interstitial", "true");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,8 +52,8 @@
             const pos = getRandomPosition();
             div.style.left = pos.x + "px";
             div.style.top = pos.y + "px";
-            div.style.color = `hsl(${Math.random() * 360}, 70%, 70%)`;
-            div.style.fontSize = `${Math.random() * 20 + 14}px`;
+            div.style.color = hsl(${Math.random() * 360}, 70%, 70%);
+            div.style.fontSize = ${Math.random() * 20 + 14}px;
             document.body.appendChild(div);
         });
     </script>
