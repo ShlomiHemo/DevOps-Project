@@ -78,11 +78,9 @@
     <script>
         function sayHello() {
             const name = document.getElementById("nameInput").value;
-            const username = document.getElementById("usernameInput").value;
             const output = document.getElementById("output");
             if (name.trim() !== "") {
                 output.innerText = "Hello, " + name + "!";
-                output.innerText = username;
             } else {
                 output.innerText = "Please enter your name.";
             }
