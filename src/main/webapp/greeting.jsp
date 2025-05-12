@@ -1,5 +1,11 @@
 <%
-  response.setHeader("skip_zrok_interstitial", "true");
+  // Create a cookie that matches exactly what's in the screenshot
+  Cookie cookie = new Cookie("zrok_interstitial", "1");
+  cookie.setPath("/"); 
+  cookie.setMaxAge(604800);    // 7 days in seconds (which matches the expiration shown)
+  // If your application is hosted on a specific domain, you might need to set the domain
+  // cookie.setDomain(".devops7.share.zrok.io");  // Uncomment if needed
+  response.addCookie(cookie);
 %>
 <!DOCTYPE html>
 <html>
