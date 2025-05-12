@@ -56,7 +56,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Hello from Shlomi Hemo!</h1>
+        <h1>Hello Moshe!</h1>
         <p>Enter your name and click the button:</p>
         <input type="text" id="nameInput" placeholder="Your name here">
         <br>
