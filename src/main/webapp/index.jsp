@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DevOps Project Dashboard</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Use standard link to Font Awesome that works with JSP -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         :root {
             --primary: #4f46e5;
@@ -490,21 +491,21 @@
     <script>
         // Form validation and user profile management
         function updateProfile() {
-            const nameInput = document.getElementById("nameInput");
-            const usernameInput = document.getElementById("usernameInput");
-            const roleInput = document.getElementById("roleInput");
-            const alertContainer = document.getElementById("alertContainer");
+            var nameInput = document.getElementById("nameInput");
+            var usernameInput = document.getElementById("usernameInput");
+            var roleInput = document.getElementById("roleInput");
+            var alertContainer = document.getElementById("alertContainer");
             
             // Simple input validation
-            if (nameInput.value.trim() === "" || usernameInput.value.trim() === "") {
+            if (nameInput.value.trim() == "" || usernameInput.value.trim() == "") {
                 showAlert("Please fill in all required fields", "danger");
                 return;
             }
             
             // XSS prevention by encoding user input
-            const name = encodeHTML(nameInput.value.trim());
-            const username = encodeHTML(usernameInput.value.trim());
-            const role = roleInput.options[roleInput.selectedIndex].text;
+            var name = encodeHTML(nameInput.value.trim());
+            var username = encodeHTML(usernameInput.value.trim());
+            var role = roleInput.options[roleInput.selectedIndex].text;
             
             // Update profile display
             document.getElementById("userInfoDisplay").style.display = "flex";
@@ -513,7 +514,7 @@
             document.getElementById("displayRole").innerText = role;
             
             // Update avatar with first letter of name
-            const firstLetter = name.charAt(0).toUpperCase();
+            var firstLetter = name.charAt(0).toUpperCase();
             document.getElementById("userAvatar").innerText = firstLetter;
             
             // Show success message
@@ -523,17 +524,18 @@
             document.querySelector(".header div span").innerText = "Welcome, " + name;
             
             // For demo purposes - normally this would be saved to a database
-            console.log("Profile updated:", { name, username, role });
+            console.log("Profile updated:", { name: name, username: username, role: role });
         }
         
         // Helper function to show alerts
         function showAlert(message, type) {
             const alertContainer = document.getElementById("alertContainer");
-            alertContainer.innerHTML = `
-                <div class="alert alert-${type}" style="display: block;">
-                    <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i> ${message}
-                </div>
-            `;
+            // Build the alert HTML manually to avoid JSP EL conflicts
+            var iconClass = (type == 'success') ? 'check-circle' : 'exclamation-circle';
+            alertContainer.innerHTML = 
+                '<div class="alert alert-' + type + '" style="display: block;">' +
+                    '<i class="fas fa-' + iconClass + '"></i> ' + message +
+                '</div>';
             
             // Auto-dismiss alert after 3 seconds
             setTimeout(() => {
