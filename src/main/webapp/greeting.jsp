@@ -65,7 +65,7 @@
 
     <div class="center-box">
         <div>Enter your grade:</div>
-        <input type="number" id="gradeInput" placeholder="Grade (0-100)">
+        <input type="number" id="gradeInput" placeholder="Grade (0-110)" min="0" max="110">
         <br>
         <button onclick="checkGrade()">Submit</button>
         <div id="message" class="message"></div>
@@ -103,14 +103,26 @@
         });
 
         function checkGrade() {
-            const input = document.getElementById("gradeInput").value;
+            const input = parseInt(document.getElementById("gradeInput").value);
             const messageDiv = document.getElementById("message");
 
-            if (parseInt(input) === 100) {
-                messageDiv.innerText = "Thank You!";
+            if (isNaN(input)) {
+                messageDiv.innerText = "Please enter a valid number.";
+                messageDiv.style.color = "red";
+                return;
+            }
+
+            if (input > 110) {
+                messageDiv.innerText = "Maximum grade is 110.";
+                messageDiv.style.color = "red";
+            } else if (input === 110) {
+                messageDiv.innerText = "Thank You !";
                 messageDiv.style.color = "lightgreen";
+            } else if (input >= 100 && input < 110) {
+                messageDiv.innerText = "Don't Forget the bonus increase increase !";
+                messageDiv.style.color = "lightblue";
             } else {
-                messageDiv.innerText = "You need to increase your grade MOSHE!.";
+                messageDiv.innerText = "You need to increase your grade MOSHE !";
                 messageDiv.style.color = "orange";
             }
         }
