@@ -250,6 +250,7 @@
             border-radius: 8px;
             margin-bottom: 1rem;
             display: none;
+            position: relative;
         }
 
         .alert-success {
@@ -262,6 +263,20 @@
             background-color: rgba(239, 68, 68, 0.1);
             border: 1px solid var(--danger);
             color: var(--danger);
+        }
+
+        .alert-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            color: inherit;
+            opacity: 0.7;
+            transition: opacity 0.2s ease;
+        }
+
+        .alert-close:hover {
+            opacity: 1;
         }
 
         .user-info {
@@ -527,23 +542,26 @@
             console.log("Profile updated:", { name: name, username: username, role: role });
         }
         
-        // Helper function to show alerts
+        // Helper function to show alerts - MODIFIED to persist alerts
         function showAlert(message, type) {
             const alertContainer = document.getElementById("alertContainer");
-            // Build the alert HTML manually to avoid JSP EL conflicts
+            // Build the alert HTML with a close button
             var iconClass = (type == 'success') ? 'check-circle' : 'exclamation-circle';
             alertContainer.innerHTML = 
                 '<div class="alert alert-' + type + '" style="display: block;">' +
                     '<i class="fas fa-' + iconClass + '"></i> ' + message +
+                    '<span class="alert-close" onclick="closeAlert()"><i class="fas fa-times"></i></span>' +
                 '</div>';
             
-            // Auto-dismiss alert after 3 seconds
-            setTimeout(() => {
-                const alert = alertContainer.querySelector(".alert");
-                if (alert) {
-                    alert.style.display = "none";
-                }
-            }, 3000);
+            // No more auto-dismiss timer - alert will remain until closed manually
+        }
+        
+        // New function to close alert manually
+        function closeAlert() {
+            const alert = document.querySelector(".alert");
+            if (alert) {
+                alert.style.display = "none";
+            }
         }
         
         // Helper function to prevent XSS attacks by encoding HTML
