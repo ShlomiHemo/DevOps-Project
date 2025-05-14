@@ -107,10 +107,10 @@
             const messageDiv = document.getElementById("message");
 
             if (parseInt(input) === 100) {
-                messageDiv.innerText = "Great!";
+                messageDiv.innerText = "Thank You!";
                 messageDiv.style.color = "lightgreen";
             } else {
-                messageDiv.innerText = "You need to improve your grade.";
+                messageDiv.innerText = "You need to increase your grade MOSHE!.";
                 messageDiv.style.color = "orange";
             }
         }
