@@ -3,103 +3,129 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevOps Project Dashboard</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>DevOps Mini‑Dashboard</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-X8d3JdQYhK2zlZA5QhZTO4XBoK1CqY99u7gopBZ5S8ZmJwM2gClZ4UcHxpsqXyR8EzBNqBG2qgbrl4uP3dcx0A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            /* LIGHT THEME */
+            --bg-gradient: linear-gradient(135deg, #e0e7ff 0%, #f0fdf4 100%);
+            --card-bg: #ffffff;
+            --text-color: #1f2937;
+            --accent: #4f46e5;
+            --accent-hover: #4338ca;
+            --border: #d1d5db;
+        }
+        body.dark {
+            /* DARK THEME overrides */
+            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            --card-bg: #1e293b;
+            --text-color: #e2e8f0;
+            --accent: #818cf8;
+            --accent-hover: #6366f1;
+            --border: #334155;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #e0e7ff, #f0fdf4);
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-gradient);
             display: flex;
-            flex-direction: column;
-            min-height: 100vh;
             align-items: center;
             justify-content: center;
-            color: #1f2937;
+            min-height: 100vh;
+            color: var(--text-color);
+            transition: background 0.4s ease; /* smooth theme switch */
         }
-
-        .container {
-            background: white;
-            padding: 2rem;
-            border-radius: 16px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            max-width: 500px;
+        .card {
+            background: var(--card-bg);
+            padding: 2.5rem 2rem;
+            border-radius: 18px;
             width: 100%;
-            text-align: center;
+            max-width: 520px;
+            box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+            position: relative;
         }
-
+        /* DARK/LIGHT toggle button */
+        .theme-toggle {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            background: var(--accent);
+            border: none;
+            color: #fff;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease;
+        }
+        .theme-toggle:hover { background: var(--accent-hover); }
         h1 {
-            color: #4f46e5;
             font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .form-group {
-            text-align: left;
-            margin: 1rem 0;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 0.5rem;
             font-weight: 600;
+            margin-bottom: 1.5rem;
         }
-
+        form { margin-top: 1rem; }
+        .form-group { margin-bottom: 1.25rem; text-align: left; }
+        label { font-weight: 500; margin-bottom: 0.4rem; display: inline-block; }
         input[type="text"] {
             width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #d1d5db;
-            border-radius: 8px;
+            padding: 0.8rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: transparent;
+            color: var(--text-color);
             font-size: 1rem;
         }
-
         .btn {
-            margin-top: 1rem;
-            padding: 0.75rem 1.5rem;
-            background-color: #4f46e5;
-            color: white;
+            display: inline-block;
+            margin-top: 0.5rem;
+            padding: 0.8rem 1.7rem;
+            background: var(--accent);
+            color: #fff;
             border: none;
-            border-radius: 8px;
-            cursor: pointer;
+            border-radius: 10px;
             font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.25s ease;
         }
-
-        .btn:hover {
-            background-color: #4338ca;
-        }
-
+        .btn:hover { background: var(--accent-hover); transform: translateY(-2px); }
         .user-info {
             margin-top: 2rem;
-            background-color: #eef2ff;
-            padding: 1rem;
-            border-radius: 12px;
+            background: rgba(79, 70, 229, 0.08);
+            backdrop-filter: blur(4px);
+            border-radius: 14px;
+            padding: 1rem 1.2rem;
         }
-
-        .user-name {
-            font-size: 1.25rem;
-            font-weight: bold;
-        }
-
+        .user-name { font-size: 1.35rem; font-weight: 600; text-align: center; }
+        /* tweak translucent bg in dark mode */
+        body.dark .user-info { background: rgba(129, 140, 248, 0.12); }
         .footer {
+            text-align: center;
             margin-top: 2rem;
-            font-size: 0.9rem;
+            font-size: 0.92rem;
         }
-
-        .footer a {
-            color: #4f46e5;
-            text-decoration: none;
-        }
-
-        .footer a:hover {
-            text-decoration: underline;
-        }
+        .footer a { color: var(--accent); text-decoration: none; }
+        .footer a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="card">
+        <!-- Dark/Light mode toggle -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+            <i class="fas fa-moon" id="toggleIcon"></i>
+        </button>
+
+        <!-- Greeting -->
         <h1>Hello, <span id="displayName">Moshe</span>!</h1>
 
+        <!-- User profile form -->
         <form id="userForm">
             <div class="form-group">
                 <label for="nameInput">Full Name</label>
@@ -108,23 +134,46 @@
             <button type="button" class="btn" onclick="updateName()">Update Name</button>
         </form>
 
+        <!-- Display area -->
         <div class="user-info" id="userInfo">
             <div class="user-name" id="userNameDisplay">Moshe</div>
         </div>
 
+        <!-- footer link -->
         <div class="footer">
-            <p><a href="greeting.jsp"><i class="fas fa-smile"></i> Go to Greeting Page</a></p>
+            <p><a href="greeting.jsp"><i class="fas fa-handshake"></i> Go to Greeting Page</a></p>
         </div>
     </div>
 
     <script>
+        /* ========== Full‑name update ========== */
         function updateName() {
-            const nameInput = document.getElementById("nameInput").value.trim();
-            if (nameInput !== "") {
-                document.getElementById("displayName").innerText = nameInput;
-                document.getElementById("userNameDisplay").innerText = nameInput;
+            const nameInput = document.getElementById('nameInput').value.trim();
+            if (nameInput) {
+                document.getElementById('displayName').innerText = nameInput;
+                document.getElementById('userNameDisplay').innerText = nameInput;
             }
         }
+
+        /* ========== Dark‑mode toggle ========== */
+        const toggleBtn   = document.getElementById('themeToggle');
+        const toggleIcon  = document.getElementById('toggleIcon');
+        const storageKey  = 'devops-dashboard-theme';
+
+        // apply saved theme on load
+        const savedTheme = localStorage.getItem(storageKey);
+        if (savedTheme === 'dark') {
+            document.body.classList.add('dark');
+            toggleIcon.classList.replace('fa-moon', 'fa-sun');
+        }
+
+        toggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+            const isDark = document.body.classList.contains('dark');
+            toggleIcon.classList.toggle('fa-sun', isDark);
+            toggleIcon.classList.toggle('fa-moon', !isDark);
+            localStorage.setItem(storageKey, isDark ? 'dark' : 'light');
+        });
     </script>
 </body>
 </html>
