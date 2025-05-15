@@ -116,10 +116,10 @@
                 messageDiv.innerText = "Maximum grade is 110.";
                 messageDiv.style.color = "red";
             } else if (input === 110) {
-                messageDiv.innerText = "Don't Forget the bonus increase increase !";
+                messageDiv.innerText = "Thank You !";
                 messageDiv.style.color = "lightgreen";
             } else if (input >= 100 && input < 110) {
-                messageDiv.innerText = "why not 110 !";
+                messageDiv.innerText = "Don't Forget the bonus increase increase !";
                 messageDiv.style.color = "lightblue";
             } else {
                 messageDiv.innerText = "You need to increase your grade MOSHE !";
