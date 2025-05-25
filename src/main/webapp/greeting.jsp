@@ -107,7 +107,7 @@
             const messageDiv = document.getElementById("message");
 
             if (isNaN(input)) {
-                messageDiv.innerText = "Please enter a valid number.";
+                messageDiv.innerText = "Please Enter a valid number.";
                 messageDiv.style.color = "red";
                 return;
             }
