@@ -122,7 +122,7 @@
                 messageDiv.innerText = "Don't Forget the bonus increase increase !";
                 messageDiv.style.color = "lightblue";
             } else {
-                messageDiv.innerText = "You need to increase your grade MOSHE !!";
+                messageDiv.innerText = "You need to increase your grade MOSHE !";
                 messageDiv.style.color = "orange";
             }
         }
