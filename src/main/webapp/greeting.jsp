@@ -64,7 +64,7 @@
 <body>
 
     <div class="center-box">
-        <div>hi</div>
+        <div>Enter your grade:</div>
         <input type="number" id="gradeInput" placeholder="Grade (0-110)" min="0" max="110">
         <br>
         <button onclick="checkGrade()">Submit</button>
