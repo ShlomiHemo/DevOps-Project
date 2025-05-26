@@ -468,7 +468,7 @@
         <!-- Greeting Section -->
         <div class="greeting">
             <h1>Hello, <span id="displayName">Moshe</span>!</h1>
-            <p class="subtitle">Welcome to your DevOps control center</p>
+            <p class="subtitle">Welcome to your devops control center</p>
         </div>
         
         <!-- Status indicators -->
