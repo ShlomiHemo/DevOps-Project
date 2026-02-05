@@ -16,12 +16,13 @@ A complete **DevOps pipeline** for a Java JSP web app, including automated deplo
 
 ## 🔹 Screenshots
 
-<div align="center">
-<img width="1918" height="1097" alt="ScreenShot application in tomcat" src="https://github.com/user-attachments/assets/c42f5df7-3413-4fd4-90b4-9af996cff3f0" />
-<img width="1505" height="924" alt="Selenium pass Run" src="https://github.com/user-attachments/assets/b238b9aa-1c17-4796-9ef7-fc105cb67d00" />
-![LoadTest](https://github.com/user-attachments/assets/2970bc2b-5ca7-4874-928b-52a54d1e45d9)
-![StressTest](https://github.com/user-attachments/assets/23696117-49ea-4c1b-99f9-560e7701830b)
-![maxLimit](https://github.com/user-attachments/assets/4c59049b-c51a-4ac8-8df3-39472350b153)
+<div align="center" style="display: flex; flex-direction: column; gap: 20px; margin: 20px 0;">
+  <img src="https://github.com/user-attachments/assets/c42f5df7-3413-4fd4-90b4-9af996cff3f0" alt="Tomcat Application Screenshot" width="800"/>
+  <img src="https://github.com/user-attachments/assets/b238b9aa-1c17-4796-9ef7-fc105cb67d00" alt="Selenium Test Pass Run" width="800"/>
+  <img src="https://github.com/user-attachments/assets/0c004a06-472e-4d05-89be-1b09cc61f398" alt="Load Test Results" width="800"/>
+  <img src="https://github.com/user-attachments/assets/ad892206-1c98-41a8-93c4-2e1828482819" alt="Stress Test Results" width="800"/>
+  <img src="https://github.com/user-attachments/assets/bf1a6f48-abdd-40ea-88ed-d45f8391a212" alt="Maximum User Limit Test" width="800"/>
 </div>
 
-*Replace `path/to/...` with your actual image paths.*
+
+
