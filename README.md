@@ -50,5 +50,17 @@ A complete **DevOps pipeline** for a Java JSP web app, including automated deplo
 
 </div>
 
+## 🔹 PDF Galing Tests 
+
+# Load Test:  
+[5 Min Load Test.pdf](https://github.com/user-attachments/files/25103002/5.Min.Load.Test.pdf)
+
+# Max Limit Test:
+[Max Limit Test.pdf](https://github.com/user-attachments/files/25103019/Max.Limit.Test.pdf)
+
+# Stress Test:
+[3 Min Stress Test.pdf](https://github.com/user-attachments/files/25103028/3.Min.Stress.Test.pdf)
+
+
 
 
